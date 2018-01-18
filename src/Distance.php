@@ -19,11 +19,11 @@ class Distance
     private const PRICE_PER_DISTANCE_GREATER_THAN_15 = 50;
 
     /**
-     * @var int
+     * @var float
      */
     private $distance;
 
-    public function __construct(int $distance)
+    public function __construct(float $distance)
     {
         Assert::greaterThanEq($distance, 0);
         $this->distance = $distance;
@@ -37,6 +37,16 @@ class Distance
     public function add(Distance $dist): Distance
     {
         return new Distance($this->distance + $dist->distance);
+    }
+
+    public function square(): Distance
+    {
+        return new Distance($this->distance ** 2);
+    }
+
+    public function squareRoot(): Distance
+    {
+        return new Distance(round(sqrt($this->distance), 3));
     }
 
     public function calculatePrice(): Money

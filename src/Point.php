@@ -33,4 +33,13 @@ class Point
         $yDistance = $point->y->distanceFromOrdinate($this->y);
         return $xDistance->add($yDistance);
     }
+
+    public function euclideanDistanceFromPoint(Point $point): Distance
+    {
+        $xDistance = $point->x->distanceFromAbscissa($this->x)->square();
+        $yDistance = $point->y->distanceFromOrdinate($this->y)->square();
+
+        $distance = $xDistance->add($yDistance)->squareRoot();
+        return $distance;
+    }
 }
