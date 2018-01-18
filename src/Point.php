@@ -9,8 +9,6 @@ namespace Kata;
  **/
 class Point
 {
-    private const ORIGIN_X = 0;
-    private const ORIGIN_Y = 0;
 
     /** @var int $x */
     private $x;
@@ -30,11 +28,8 @@ class Point
         $this->y = $y;
     }
 
-    /**
-     * @return int
-     */
-    public function distanceFromOrigin(): int
+    public function distanceFromPoint(Point $point):int
     {
-        return abs($this->x - self::ORIGIN_X) + abs($this->y - self::ORIGIN_Y);
+        return abs($point->x - $this->x) + abs($point->y - $this->y);
     }
 }

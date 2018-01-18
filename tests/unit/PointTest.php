@@ -17,17 +17,20 @@ class PointTest extends TestCase
     public function getCalculationExamples(): array
     {
         return [
-            'Distance of (2,2) must be 4' => [
+            'Distance between (-4, -4) and (2,2) must be 12' => [
+                new Point(-4, -4),
                 new Point(2, 2),
-                4,
+                12,
             ],
-            'Distance of (-2,-2) must be 4' => [
+            'Distance between (0,0) and (-2,-2) must be 4' => [
+                new Point(0, 0),
                 new Point(-2, -2),
                 4,
             ],
-            'Distance of (-1,3) must be 4' => [
+            'Distance between (1,1) and (-2, -2) must be 6' => [
+                new Point(1, 1),
                 new Point(-2, -2),
-                4,
+                6,
             ],
         ];
     }
@@ -36,11 +39,12 @@ class PointTest extends TestCase
      * @dataProvider getCalculationExamples
      * @test
      *
-     * @param $point
-     * @param $expectedDistance
+     * @param Point $start
+     * @param Point $end
+     * @param int $expectedDistance
      */
-    public function it_returns_the_distance_from_origin(Point $point, int $expectedDistance)
+    public function it_returns_the_distance_from_another_point(Point $start, Point $end, int $expectedDistance)
     {
-        $this->assertEquals($expectedDistance, $point->distanceFromOrigin());
+        $this->assertEquals($expectedDistance, $start->distanceFromPoint($end));
     }
 }
