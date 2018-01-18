@@ -10,26 +10,26 @@ namespace Kata;
 class Point
 {
 
-    /** @var int $x */
+    /** @var Abscissa $x */
     private $x;
 
-    /** @var int $y */
+    /** @var Ordinate $y */
     private $y;
 
     /**
      * Point constructor.
      *
-     * @param int $x
-     * @param int $y
+     * @param Abscissa $x
+     * @param Ordinate $y
      */
-    public function __construct($x, $y)
+    public function __construct(Abscissa $x, Ordinate $y)
     {
         $this->x = $x;
         $this->y = $y;
     }
 
-    public function distanceFromPoint(Point $point):int
+    public function distanceFromPoint(Point $point): Distance
     {
-        return abs($point->x - $this->x) + abs($point->y - $this->y);
+        return  abs($point->x - $this->x) + abs($point->y - $this->y);
     }
 }
