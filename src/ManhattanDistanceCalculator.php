@@ -26,6 +26,6 @@ class ManhattanDistanceCalculator
 
     public function calculate(): int
     {
-        return 2;
+        return $this->start->distanceFromOrigin() + $this->end->distanceFromOrigin();
     }
 }

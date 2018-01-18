@@ -27,6 +27,11 @@ class ManhattanDistanceCalculatorTest extends TestCase
                 new Point(3, 3),
                 6,
             ],
+            'Distance between (-3,-3) and (3,3) must be 12' => [
+                new Point(-3, -3),
+                new Point(3, 3),
+                12,
+            ],
         ];
     }
 
