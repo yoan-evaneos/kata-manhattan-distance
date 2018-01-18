@@ -28,5 +28,4 @@ class ManhattanDistanceCalculator
     {
         return 2;
     }
-
 }
