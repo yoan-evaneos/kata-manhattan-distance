@@ -41,12 +41,18 @@ class PointTest extends TestCase
     public function getEuclideanCalculationExamples(): array
     {
         return [
-            'Euclidean Distance between (0, 0) and (2,2) must be 2' => [
+            'Euclidean Distance between (0, 0) and (2,2) must be 2.828' => [
                 new Point(new Abscissa(0), new Ordinate(0)),
                 new Point(new Abscissa(2), new Ordinate(2)),
                 new Distance(2.828),
             ],
+            'Euclidean Distance between (1, 4) and (5,2) must be 4.472' => [
+                new Point(new Abscissa(1), new Ordinate(4)),
+                new Point(new Abscissa(5), new Ordinate(2)),
+                new Distance(4.472),
+            ],
         ];
+
     }
 
     /**
