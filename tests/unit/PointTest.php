@@ -42,11 +42,11 @@ class PointTest extends TestCase
      * @dataProvider getCalculationExamples
      * @test
      *
-     * @param Point $start
-     * @param Point $end
-     * @param int $expectedDistance
+     * @param Point    $start
+     * @param Point    $end
+     * @param Distance $expectedDistance
      */
-    public function it_returns_the_distance_from_another_point(Point $start, Point $end, int $expectedDistance)
+    public function it_returns_the_distance_from_another_point(Point $start, Point $end, Distance $expectedDistance)
     {
         $this->assertEquals($expectedDistance, $start->distanceFromPoint($end));
     }

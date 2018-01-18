@@ -9,7 +9,6 @@ namespace Kata;
  **/
 class Point
 {
-
     /** @var Abscissa $x */
     private $x;
 
@@ -30,6 +29,8 @@ class Point
 
     public function distanceFromPoint(Point $point): Distance
     {
-        return  abs($point->x - $this->x) + abs($point->y - $this->y);
+        $xDistance = $point->x->distanceFromAbscissa($this->x);
+        $yDistance = $point->y->distanceFromOrdinate($this->y);
+        return $xDistance->add($yDistance);
     }
 }

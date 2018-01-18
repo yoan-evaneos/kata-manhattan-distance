@@ -24,4 +24,14 @@ class Ordinate
     {
         $this->ordinate = $ordinate;
     }
+
+    /**
+     * @param Ordinate $ordinate
+     *
+     * @return Distance
+     */
+    public function distanceFromOrdinate(Ordinate $ordinate): Distance
+    {
+        return new Distance(abs($ordinate->ordinate - $this->ordinate));
+    }
 }

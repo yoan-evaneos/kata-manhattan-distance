@@ -19,6 +19,11 @@ class Distance
         $this->distance = $distance;
     }
 
+    /**
+     * @param Distance $dist
+     *
+     * @return Distance
+     */
     public function add(Distance $dist): Distance
     {
         return new Distance($this->distance + $dist->distance);

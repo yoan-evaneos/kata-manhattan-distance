@@ -24,7 +24,13 @@ class Abscissa
         $this->abscissa = $abscissa;
     }
 
-    public function distanceFromAbscissa($x) : Distance
+    /**
+     * @param Abscissa $x
+     *
+     * @return Distance
+     */
+    public function distanceFromAbscissa(Abscissa $x) : Distance
     {
+        return new Distance(abs($x->abscissa - $this->abscissa));
     }
 }
