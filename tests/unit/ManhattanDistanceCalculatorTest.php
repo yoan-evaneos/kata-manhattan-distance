@@ -14,17 +14,36 @@ use PHPUnit\Framework\TestCase;
 class ManhattanDistanceCalculatorTest extends TestCase
 {
 
-    /**
-     * @test
-     */
-    public function it_calculates_the_distance()
+    public function getCalculationExamples(): array
     {
-        $a = new Point(0, 0);
-        $b = new Point(1, 1);
-        $sut = new ManhattanDistanceCalculator($a, $b);
+        return [
+            'Distance between (0,0) and (1,1) must be 2' => [
+                new Point(0, 0),
+                new Point(1, 1),
+                2,
+            ],
+            'Distance between (0,0) and (3,3) must be 6' => [
+                new Point(0, 0),
+                new Point(3, 3),
+                6,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider getCalculationExamples
+     * @test
+     *
+     * @param Point $start
+     * @param Point $end
+     * @param int $expectedDistance
+     */
+    public function it_calculates_the_distance(Point $start, Point $end, int $expectedDistance)
+    {
+        $sut = new ManhattanDistanceCalculator($start, $end);
 
         $distance = $sut->calculate();
 
-        $this->assertEquals(2, $distance);
+        $this->assertEquals($expectedDistance, $distance);
     }
 }
